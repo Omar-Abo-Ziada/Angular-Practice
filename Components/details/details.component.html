@@ -1,0 +1,16 @@
+<h1>Product : {{product?.name}} details</h1>
+<br>
+<h2>ID : {{product?.id }}</h2>
+<h2>Price : {{product?.price | currency : 'EGP'}}</h2>
+<h2>qunatity : {{product?.quantity}} </h2>
+<h2>category ID : {{product?.catId}}</h2>
+<img [src]="product?.imgUrl" width="200">
+
+<div class="m-5">
+    <button class="btn btn-danger m-1" (click)="prev()">Prev Product</button>
+    <button class="btn btn-success m-1" (click)="next()">Next Product</button>
+</div>
+
+<div >
+    <button class="btn btn-info" (click)="backStack()">Back</button>
+</div>

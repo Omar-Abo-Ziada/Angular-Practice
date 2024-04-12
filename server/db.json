@@ -1,0 +1,98 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Samsung",
+      "orderedQuantity": 0,
+      "price": 12500,
+      "quantity": 5,
+      "catId": 1,
+      "imgUrl": "https://th.bing.com/th/id/R.7d55af56b9e7ea4b4eb3cebdcd2d754f?rik=IXvHRYOQ1jN%2b7g&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f06%2fSamsung-Mobile-Phone-PNG-Image.png&ehk=lxcLJ12AsgXKiLDd3tjaBY%2fR1nu01sKnLVi90bWusLA%3d&risl=&pid=ImgRaw&r=0"
+    },
+    {
+      "id": "2",
+      "name": "Iphone",
+      "orderedQuantity": 0,
+      "price": 40000,
+      "quantity": 2,
+      "catId": 1,
+      "imgUrl": "https://th.bing.com/th/id/R.30e71f6a3d2674779227a548f86e0527?rik=1Z5SeGTF%2fMD%2fgA&pid=ImgRaw&r=0"
+    },
+    {
+      "id": "3",
+      "name": "dell",
+      "orderedQuantity": 0,
+      "price": 35000,
+      "quantity": 12,
+      "catId": 2,
+      "imgUrl": "https://www.pngarts.com/files/4/Dell-Laptop-PNG-Image.png"
+    },
+    {
+      "id": "4",
+      "name": "lenovo",
+      "orderedQuantity": 0,
+      "price": 50000,
+      "quantity": 9,
+      "catId": 2,
+      "imgUrl": "https://www.pngall.com/wp-content/uploads/8/Lenovo-Laptop-PNG-Free-Download.png"
+    },
+    {
+      "id": "5",
+      "name": "Gshock plus",
+      "orderedQuantity": 0,
+      "price": 5000,
+      "quantity": 10,
+      "catId": 3,
+      "imgUrl": "https://paradoxfwc.com/wp-content/uploads/2019/11/GSTB100D-1A_hd.png"
+    },
+    {
+      "id": "6",
+      "name": "Rolex",
+      "orderedQuantity": 0,
+      "price": 100000,
+      "quantity": 4,
+      "catId": 3,
+      "imgUrl": "https://pluspng.com/img-png/rolex-png-submariner-date-360.png"
+    },
+    {
+      "id": "7",
+      "name": "casio",
+      "orderedQuantity": 0,
+      "price": 2000,
+      "quantity": 3,
+      "catId": 3,
+      "imgUrl": "https://pngimg.com/uploads/watches/watches_PNG9866.png"
+    },
+    {
+      "name": "Realme 5 pro",
+      "orderedQuantity": 0,
+      "price": 4500,
+      "quantity": 10,
+      "catId": 1,
+      "imgUrl": "https://www.pngall.com/wp-content/uploads/4/Realme-Smartphone-PNG-Free-Download.png",
+      "id": "5b3f"
+    },
+    {
+      "id": "93d0",
+      "catId": "2",
+      "name": "asd",
+      "price": 23,
+      "quantity": 23,
+      "imgUrl": "C:\\fakepath\\ausus.png"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "phones"
+    },
+    {
+      "id": "2",
+      "name": "Labtops"
+    },
+    {
+      "id": "3",
+      "name": "hand watches"
+    }
+  ]
+}

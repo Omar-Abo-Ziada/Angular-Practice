@@ -1,0 +1,78 @@
+<header class="container text-center my-5">
+
+</header>
+
+<!-- <div class="row text-center p-5"  >
+    <div class="col-sm-3 mx-5 mb-5"   
+     *ngFor="let prod of products"
+     [class.d-none]="prod.catId != selectedCategId && selectedCategId!=0"
+    > -->
+    <div class="row text-center p-5"  >
+      <div class="col-sm-3 mx-5 mb-5 p-1"   
+       *ngFor="let prod of filteredProducts"
+      >
+
+    <h2 class="text-danger" [style.visibility]="prod.quantity > 0 ? 'hidden' : 'visible'">* Comming Soon Again *</h2>
+    <!-- = "#ccffcc" -->
+      <div class="card" appVisualize bgColor= "#ccffcc" > 
+        <div class="card-body"  
+        [style.opacity] = "(prod.quantity == 0 ? '30%' : '100%' )">
+
+          <h2 class="card-title">{{prod.name}}</h2>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+          <div [ngSwitch]="prod.quantity">
+
+          <p *ngSwitchCase="0" class="card-text text-danger" style="font-weight: bold;">** Out of Stock **</p>
+          <p *ngSwitchCase="1" class="card-text text-danger" style="font-weight: bold;">* Last Item *</p>
+          <p *ngSwitchCase="2" class="card-text text-danger" style="font-weight: bold;">* Last 2 items *</p>
+          <p *ngSwitchDefault="" class="card-text ">Available quantity : {{prod.quantity}}</p>
+          
+          </div>
+          <!-- <p class="card-text">Available qunatity :{{prod.quantity}}</p> -->
+
+          <p class="card-text">Price :{{prod.price |  currency: 'EGP'}}</p>
+
+          <section ><img src="{{prod.imgUrl}}" height="150" class="my-5" /></section>
+
+          <section>
+            <input type="number" 
+            class="my-3" placeholder="How many items ?" #prodQuan
+            [disabled]="prod.quantity == 0"  >
+          </section>
+
+          <section class="row ">
+            <a href="#" 
+            (click)="buy(prodQuan.value , prod.id)" 
+            class="btn btn-success" [class.disabled]="prod.quantity == 0">Add to Cart</a>
+          </section>
+
+          <section class="row m-2">
+
+            <div class="col-4 ">
+              <a (click)="goToDetails(prod.id)"
+              class="btn btn-info" [class.disabled]="prod.quantity == 0">Details</a>
+                <!-- <a [routerLink]="['/details' , prod.id]"
+              class="btn btn-success" [class.disabled]="prod.quantity == 0">Details</a> -->
+            </div>
+
+            <div class="col-4">
+              <a (click)="edit(prod.id)"
+              class="btn btn-primary" [class.disabled]="prod.quantity == 0">Edit</a>
+                <!-- <a [routerLink]="['/details' , prod.id]"
+              class="btn btn-success" [class.disabled]="prod.quantity == 0">Details</a> -->
+            </div>
+
+            <div class="col-4">
+              <a (click)="deleteProduct(prod.id)"
+              class="btn btn-danger" [class.disabled]="prod.quantity == 0">Delete</a>
+                <!-- <a [routerLink]="['/details' , prod.id]"
+              class="btn btn-success" [class.disabled]="prod.quantity == 0">Details</a> -->
+            </div>
+          
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </div>

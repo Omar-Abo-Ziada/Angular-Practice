@@ -1,0 +1,62 @@
+<h1>Edit Product</h1>
+
+<div class="container">
+    <h1 class="mb-4">Add New Product</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form #productForm="ngForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input [(ngModel)]="product.name" type="text"
+                    required pattern="[A-Za-z0-9_ ]{3,20}$" 
+                    #prodName = "ngModel"
+                     class="form-control" id="name" name="name" aria-describedby="productName">
+
+                     @if(prodName.invalid && prodName.touched)
+                     {
+                        @if(prodName.errors?.['required']){
+                            <p class="text-danger mt-1">Name is required</p>
+                        }
+
+                        @if(prodName.errors?.['pattern']){
+                            <p class="text-danger mt-1">Name must be at least 3 characters up to 20 characters max , no numbers allowed</p>
+                        }
+                     }
+
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input [(ngModel)]="product.price" type="number" class="form-control" id="price" name="price">
+                </div>
+
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input [(ngModel)]="product.quantity" type="number" class="form-control" id="quantity" name="quantity">
+                </div>
+
+                <div class="mb-3">
+                    <label for="imgUrl" class="form-label">Image</label>
+                    <input [(ngModel)]="product.imgUrl" type="file" class="form-control" id="imgUrl" name="imgUrl">
+                </div>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select [(ngModel)]="product.catId" class="form-select" id="selectedCatID" name="selectedCatID" aria-label="Select Category">
+                        <option value="0" selected disabled>Select Category</option>
+                        <ng-container *ngIf="categories.length > 0; else noCategories">
+                            <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
+                        </ng-container>
+                        <ng-template #noCategories>
+                            <h1>No categories found</h1>
+                        </ng-template>
+                    </select>
+                </div>
+
+                <button type="submit" (click)="editProduct()" [disabled]="productForm.invalid" class="btn btn-success">Add</button>
+            </form>
+        </div>
+    </div>
+</div>

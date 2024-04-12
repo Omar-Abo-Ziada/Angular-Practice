@@ -1,0 +1,82 @@
+<main>
+    <div class="row w-50 container" >
+        <div class="col-6" >
+          <div class="mb-3">
+            <h2>Select Category</h2>
+            <select class="form-select form-select-lg" name="selectedCategory" id="selectedCategory"
+             [(ngModel)]="selectedCategId"  >
+             <!-- (change)="filterProductsFn()" -->
+    
+              <option selected value="0">Select All</option>
+              <option  *ngFor="let categ of categories; trackBy: trackProducts"  [value]="categ.id">{{categ.name}}</option>
+              <!-- <option *ngFor="let categ of categories;"  [value]="categ.id">{{categ.name}}</option> -->
+              
+            </select>
+          </div>
+        </div>
+    
+        <div class="col-6 container text-center">
+          <h2>slected category id = {{selectedCategId}}</h2>
+        </div>
+    
+      </div>
+    
+    
+      <h2 class="text-center">
+        <!-- taking it as a number and return string -->
+        Credit card number = {{creditCardNumber | formatCreditCard }} 
+      </h2>
+    
+    <div style="background-color: #a8dadc;">
+        <app-products [recievedSelectedCatId] = "selectedCategId"
+    
+        (onAddToCart)="handleAddToCartEvent($event)" 
+    
+        (onTotalOrderPriceChanged)="handleTotalPriceEvent($event)" 
+    
+        ></app-products>
+    </div>
+    
+    
+    <div class="container text-center my-5"> 
+        <div class="table-responsive">
+            <h2>Total Orders</h2>
+            <table class="table table-striped table-hover table-borderless table-primary align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Store qunatity</th>
+                        <th>ordered qunatity</th>
+                        <th>Price / each</th>
+                        <th>Image</th>
+                        <th>Category ID</th>
+                        <th>Total Amount Price</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+    
+                    <tr class="table-primary" style="background-color: #EDF7B5;" *ngFor="let prod of addedToCartProducts">
+                        <td scope="row">{{prod.id}}</td>
+                        <td scope="row">{{prod.name}}</td>
+                        <td scope="row">{{prod.quantity}}</td>
+                        <td scope="row">{{prod.orderedQuantity}}</td>
+                        <td scope="row">{{prod.price}}</td>
+                        <td scope="row"><img src="{{prod.imgUrl}}" height="50" alt="{{prod.name}}" title="{{prod.name}}"></td>
+                        <td scope="row">{{prod.catId}}</td>
+                        <td scope="row">{{prod.price * prod.orderedQuantity}}</td>
+                    </tr>
+                    
+                </tbody>
+                <tfoot>
+                    
+                </tfoot>
+            </table>
+        </div>
+        
+    </div>
+    <h2 class="text-center">
+        Total Order Price = {{recievedTotalOrderPrice | currency : 'EGP'}} 
+    </h2>
+    
+</main>
